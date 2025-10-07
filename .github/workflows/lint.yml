@@ -1,0 +1,23 @@
+name: Lint & Format
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Sync dependencies from pyproject.toml/uv.lock
+        run: uv sync
+
+      - name: Lint Code with Ruff
+        uses: astral-sh/ruff-action@v3
+        # Optionally, use installed Ruff
+        # run: uv run ruff check .
