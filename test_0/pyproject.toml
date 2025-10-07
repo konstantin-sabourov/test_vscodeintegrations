@@ -1,0 +1,29 @@
+[project]
+name = "test-0"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fire>=0.7.1",
+]
+
+# manually added for tests
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--strict-config",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+lint = [
+    "ruff>=0.14.0",
+]
