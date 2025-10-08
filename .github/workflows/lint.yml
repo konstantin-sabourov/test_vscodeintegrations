@@ -15,7 +15,7 @@ jobs:
         run: uv python install 3.12
 
       - name: Sync dependencies from pyproject.toml/uv.lock
-        run: uv sync
+        run: uv sync --locked
 
       - name: Lint Code with Ruff
         uses: astral-sh/ruff-action@v3
